@@ -1,0 +1,6 @@
+- Removed run_mode = "forward-then-backward" from ultralisk animation
+- Changed frame_count from 9 to 7 for lurker death to preserve gruesomeness
+- Changed frame_count from 15 to 11 for ultralisk death to preserve gruesomeness
+- Changed frame_count from 12 to 7 for drone death to preserve gruesomeness
+- Changed 0.6 Animation_Speed to 0.5 (30fps)
+- Changed 0.18 and 0.15 Animation_Speed to 0.2 (12fps)
