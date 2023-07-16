@@ -63,7 +63,8 @@ local convert_to_hd = function(i)
                 axially_symmetrical = false,
                 direction_count = 1,
                 scale = unit_scale,
-                animation_speed = 0.5,
+                animation_speed = 0.2,
+                repeat_count = 12,
             },
             {
                 filename = "__erm_zerg_hd__/graphics/entity/units/" .. name .. "/" .. name .. "-construction.png",
@@ -75,7 +76,8 @@ local convert_to_hd = function(i)
                 scale = unit_scale,
                 draw_as_shadow = true,
                 tint = ERM_UnitTint.tint_shadow(),
-                animation_speed = 0.5,
+                animation_speed = 0.2,
+                repeat_count = 12,
                 shift = {0.2, 0}
             }
         }
