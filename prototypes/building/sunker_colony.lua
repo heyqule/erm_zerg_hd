@@ -87,6 +87,8 @@ local convert_to_hd = function(i)
     turret['selection_box'] = selection_box
     turret['sticker_box'] = selection_box
 
+    turret['dying_explosion'] = 'zerg-building-explosion-small'
+
     local short_turret = data.raw["turret"][MOD_NAME..'/'.. short_range_name ..'/'.. i]
 
     short_turret['folded_animation'] = folded_animation()
@@ -96,6 +98,7 @@ local convert_to_hd = function(i)
     short_turret['selection_box'] = selection_box
     short_turret['sticker_box'] = selection_box
 
+    turret['dying_explosion'] = 'zerg-building-explosion-small'
 end
 
 --- Convert regular building, level 1 - 20

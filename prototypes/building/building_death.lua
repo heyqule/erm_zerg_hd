@@ -31,8 +31,7 @@ largeCorpse['animation'] =             {
 }
 
 local explosion = data.raw["explosion"]['zerg-building-explosion']
-
-explosion['animation'] = {
+explosion['animations'] = {
     filename = "__erm_zerg_hd__/graphics/entity/buildings/death/zerg_building_blood_large.png",
     width = 550,
     height = 656,
@@ -42,29 +41,35 @@ explosion['animation'] = {
     scale = 0.7
 }
 
+local xlarge_explosion =  data.raw["explosion"]['zerg-terran-building-xlarge-explosion']
+xlarge_explosion['animations'] = {
+    filename = "__erm_zerg_hd__/graphics/entity/buildings/death/terran_building_explosion_large.png",
+    width = 819,
+    height = 661,
+    frame_count = 10,
+    animation_speed = 0.25,
+    direction_count = 1,
+    scale = 0.7
+}
 
---
---local smallExplosion = data.raw["explosion"]['zerg-building-explosion-small']
---
---smallExplosion['animation'] = {
---    filename = "__erm_zerg_hd__/graphics/entity/buildings/death/zerg_building_blood_small.png",
---    width = 344,
---    height = 342,
---    frame_count = 8,
---    animation_speed = 0.2,
---    direction_count = 1,
---    scale = 0.7
---}
---
---
---local largeExplosion = data.raw["explosion"]['zerg-building-explosion-large']
---
---largeExplosion['animation'] = {
---    filename = "__erm_zerg_hd__/graphics/entity/buildings/death/zerg_building_blood_large.png",
---    width = 550,
---    height = 656,
---    frame_count = 8,
---    animation_speed = 0.2,
---    direction_count = 1,
---    scale = 0.7
---}
+data:extend({
+    {
+        type = "explosion",
+        name = "zerg-building-explosion-small",
+        icon = "__erm_zerg__/graphics/entity/icons/buildings/advisor.png",
+        icon_size = 64,
+        subgroup = 'explosions',
+        flags = { "not-on-map", "hidden" },
+        order = "zerg-explosions",
+        render_layer = "explosion",
+        animations = {
+            filename = "__erm_zerg_hd__/graphics/entity/buildings/death/zerg_building_blood_small.png",
+            width = 344,
+            height = 342,
+            frame_count = 8,
+            animation_speed = 0.25,
+            direction_count = 1,
+            scale = 0.7
+        }
+    },
+})

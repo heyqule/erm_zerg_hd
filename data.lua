@@ -16,6 +16,8 @@ require "prototypes.enemy.guardian"
 require "prototypes.enemy.drone"
 require "prototypes.enemy.devourer"
 require "prototypes.enemy.defiler"
+require "prototypes.enemy.scourge"
+require "prototypes.enemy.broodling"
 
 
 require "prototypes.building.boss_overmind"
@@ -34,6 +36,7 @@ require "prototypes.building.spire"
 require "prototypes.building.spore_colony"
 require "prototypes.building.sunker_colony"
 require "prototypes.building.ultralisk_cavern"
+require "prototypes.building.infested_cmd"
 
 require "prototypes.boss-projectiles"
 require "prototypes.projectiles"

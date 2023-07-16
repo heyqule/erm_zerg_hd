@@ -5,9 +5,9 @@
   "title": "ERM - Zerg HD Graphic Pack",
   "author": "SHlNZ0U",
   "contact": "Discord shlnz0u",
-  "description": "Required: ERM_Terran. This mod adds SC2 models to serve as high res assets. Special Thanks: MihaTron for providing the graphic",
+  "description": "Required: ERM_Zerg. This mod adds SC2 models to serve as high res assets. Special Thanks: MihaTron for providing the graphic",
   "factorio_version": "1.1",
   "dependencies": [
-    "erm_zerg >= 1.19.0"
+    "erm_zerg >= 1.20.0"
   ]
 }
