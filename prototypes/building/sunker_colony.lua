@@ -8,6 +8,8 @@ local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 require('__erm_zerg__/global')
 require('util')
 local ErmConfig = require('__enemyracemanager__/lib/global_config')
+local SharedFunction = require('__erm_zerg_hd__/prototypes/shared_functions')
+local AnimationDB = require('__erm_zerg_hd_assets__/animation_db')
 
 --- Change name
 local name = 'sunker_colony'
@@ -21,57 +23,13 @@ local map_generator_bounding_box = { { -3, -3 }, { 3, 3 } }
 local selection_box = { { -2, -2 }, { 2, 2 } }
 
 local folded_animation = function()
-    return {
-        layers = {
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/buildings/" .. name .. "/" .. name .. ".png",
-                width = 521,
-                height = 503,
-                frame_count = 3,
-                direction_count = 1,
-                scale = unit_scale,
-                run_mode = "forward-then-backward",
-            },
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/buildings/" .. name .. "/" .. name .. ".png",
-                width = 521,
-                height = 503,
-                frame_count = 3,
-                direction_count = 1,
-                scale = unit_scale,
-                draw_as_shadow = true,
-                shift = { 0.25, 0.1 },
-                run_mode = "forward-then-backward",
-            },
-        }
-    }
+    local animation = AnimationDB.get_layered_animations('buildings', name, 'run')
+    return animation
 end
 
 local attack_animation = function()
-    return {
-        layers = {
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/buildings/" .. name .. "/" .. name .. "_attack.png",
-                width = 521,
-                height = 503,
-                frame_count = 11,
-                direction_count = 3,
-                scale = unit_scale,
-                run_mode = "forward-then-backward",
-            },
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/buildings/" .. name .. "/" .. name .. "_attack.png",
-                width = 521,
-                height = 503,
-                frame_count = 11,
-                direction_count = 3,
-                scale = unit_scale,
-                run_mode = "forward-then-backward",
-                draw_as_shadow = true,
-                shift = { 0.25, 0.1 },
-            },
-        }
-    }
+    local animation = AnimationDB.get_layered_animations('buildings', name, 'attack')
+    return animation
 end
 
 --- This function convert classic to HD graphic
@@ -86,6 +44,7 @@ local convert_to_hd = function(i)
     turret['collision_box'] = collision_box
     turret['selection_box'] = selection_box
     turret['sticker_box'] = selection_box
+    turret['map_generator_bounding_box'] = map_generator_bounding_box
 
     turret['dying_explosion'] = 'zerg-building-explosion-small'
 
@@ -97,6 +56,7 @@ local convert_to_hd = function(i)
     short_turret['collision_box'] = collision_box
     short_turret['selection_box'] = selection_box
     short_turret['sticker_box'] = selection_box
+    short_turret['map_generator_bounding_box'] = map_generator_bounding_box
 
     turret['dying_explosion'] = 'zerg-building-explosion-small'
 end

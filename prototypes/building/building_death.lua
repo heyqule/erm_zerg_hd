@@ -3,54 +3,23 @@
 --- Created by heyqule.
 --- DateTime: 6/12/2022 7:43 PM
 ---
+local AnimationDB = require('__erm_zerg_hd_assets__/animation_db')
 
 local smallCorpse = data.raw["corpse"]['zerg-small-base-corpse']
 
 --- Replace the animation
-smallCorpse['animation'] = {
-    filename = "__erm_zerg_hd__/graphics/entity/buildings/death/zerg_small_rubble.png",
-    variation_count = 4,
-    width = 386,
-    height = 377,
-    frame_count = 1,
-    direction_count = 1,
-    scale = 0.5
-}
+smallCorpse['animation'] = AnimationDB.get_layered_animations('death', 'small_rubble', 'run')
 
 
 local largeCorpse = data.raw["corpse"]['zerg-large-base-corpse']
 
-largeCorpse['animation'] =             {
-    filename = "__erm_zerg_hd__/graphics/entity/buildings/death/zerg_large_rubble.png",
-    width = 509,
-    height = 505,
-    variation_count = 4,
-    frame_count = 1,
-    direction_count = 1,
-    scale = 0.5
-}
+largeCorpse['animation'] = AnimationDB.get_layered_animations('death', 'large_rubble', 'run')
 
 local explosion = data.raw["explosion"]['zerg-building-explosion']
-explosion['animations'] = {
-    filename = "__erm_zerg_hd__/graphics/entity/buildings/death/zerg_building_blood_large.png",
-    width = 550,
-    height = 656,
-    frame_count = 8,
-    animation_speed = 0.2,
-    direction_count = 1,
-    scale = 0.7
-}
+explosion['animations'] = AnimationDB.get_layered_animations('death', 'large_building', 'explosion')
 
 local xlarge_explosion =  data.raw["explosion"]['zerg-terran-building-xlarge-explosion']
-xlarge_explosion['animations'] = {
-    filename = "__erm_zerg_hd__/graphics/entity/buildings/death/terran_building_explosion_large.png",
-    width = 819,
-    height = 661,
-    frame_count = 10,
-    animation_speed = 0.25,
-    direction_count = 1,
-    scale = 0.7
-}
+xlarge_explosion['animations'] = AnimationDB.get_layered_animations('death', 'terran_cmd', 'explosion')
 
 data:extend({
     {
@@ -62,14 +31,6 @@ data:extend({
         flags = { "not-on-map", "hidden" },
         order = "zerg-explosions",
         render_layer = "explosion",
-        animations = {
-            filename = "__erm_zerg_hd__/graphics/entity/buildings/death/zerg_building_blood_small.png",
-            width = 344,
-            height = 342,
-            frame_count = 8,
-            animation_speed = 0.25,
-            direction_count = 1,
-            scale = 0.7
-        }
+        animations = AnimationDB.get_layered_animations('death', 'small_building', 'explosion')
     },
 })

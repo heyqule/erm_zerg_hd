@@ -8,9 +8,10 @@ local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 require('__erm_zerg__/global')
 require('util')
 local ErmConfig = require('__enemyracemanager__/lib/global_config')
+local AnimationDB = require('__erm_zerg_hd_assets__/animation_db')
 
 local name = 'broodling'
-local unit_scale =  0.3
+
 
 --- Change collision box in case the scale not match
 --- Changing collision box may affect unit pathing.. Be careful when you change it.
@@ -24,66 +25,15 @@ local convert_to_hd = function(i)
     local unit = data.raw["unit"][MOD_NAME..'/'.. name ..'/'.. i]
 
     --- Replace running animation
-    unit['run_animation'] = {
-        layers = {
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                width = 240,
-                height = 220,
-                frame_count = 6,
-                axially_symmetrical = false,
-                direction_count = 16,
-                scale = unit_scale,
-                animation_speed = 0.6,
-            },
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                width = 240,
-                height = 220,
-                frame_count = 6,
-                axially_symmetrical = false,
-                direction_count = 16,
-                scale = unit_scale,
-                tint = ERM_UnitTint.tint_shadow(),
-                draw_as_shadow = true,
-                animation_speed = 0.6,
-                shift = {0.2, 0}
-            }
-        }
-    }
+    unit['run_animation'] = AnimationDB.get_layered_animations('units', name, 'run')
 
     --- Replace attack animation
-    unit['attack_parameters']['animation'] = {
-        layers = {
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/units/" .. name .. "/" .. name .. "-attack.png",
-                width = 240,
-                height = 220,
-                frame_count = 6,
-                axially_symmetrical = false,
-                direction_count = 16,
-                scale = unit_scale,
-                animation_speed = 0.6
-            },
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/units/" .. name .. "/" .. name .. "-attack.png",
-                width = 240,
-                height = 220,
-                frame_count = 6,
-                axially_symmetrical = false,
-                direction_count = 16,
-                scale = unit_scale,
-                draw_as_shadow = true,
-                tint = ERM_UnitTint.tint_shadow(),
-                animation_speed = 0.6,
-                shift = {0.2, 0}
-            }
-        }
-    }
+    unit['attack_parameters']['animation'] = AnimationDB.get_layered_animations('units', name, 'attack')
 
     unit['collision_box'] = collision_box
     unit['selection_box'] = selection_box
     unit['sticker_box'] = selection_box
+
 
 end
 
@@ -93,16 +43,7 @@ local convert_corpse = function()
     local corpse = data.raw["corpse"][name .. '-corpse']
 
     --- Replace the animation
-    corpse['animation'] = {
-        filename = "__erm_zerg_hd__/graphics/entity/units/" .. name .. "/" .. name .. "-death.png",
-        width = 242,
-        height = 222,
-        frame_count = 5,
-        direction_count = 1,
-        axially_symmetrical = false,
-        scale = unit_scale,
-        animation_speed = 0.2
-    }
+    corpse['animation'] = AnimationDB.get_single_animation('units', name, 'corpse')
 
 end
 

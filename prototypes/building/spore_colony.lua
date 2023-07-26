@@ -8,6 +8,8 @@ local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 require('__erm_zerg__/global')
 require('util')
 local ErmConfig = require('__enemyracemanager__/lib/global_config')
+local SharedFunction = require('__erm_zerg_hd__/prototypes/shared_functions')
+local AnimationDB = require('__erm_zerg_hd_assets__/animation_db')
 
 --- Change name
 local name = 'spore_colony'
@@ -20,30 +22,8 @@ local map_generator_bounding_box = { { -3, -3 }, { 3, 3 } }
 local selection_box = { { -2, -2 }, { 2, 2 } }
 
 local folded_animation = function()
-    return {
-        layers = {
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/buildings/" .. name .. "/" .. name .. ".png",
-                run_mode = "forward",
-                width = 508,
-                height = 515,
-                frame_count = 4,
-                direction_count = 1,
-                scale = unit_scale,
-            },
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/buildings/" .. name .. "/" .. name .. ".png",
-                run_mode = "forward",
-                width = 508,
-                height = 515,
-                frame_count = 4,
-                direction_count = 1,
-                draw_as_shadow = true,
-                shift = { 0.25, 0.1 },
-                scale = unit_scale,
-            }
-        }
-    }
+    local animation = AnimationDB.get_layered_animations('buildings', name, 'run')
+    return animation
 end
 
 --- This function convert classic to HD graphic
@@ -57,6 +37,7 @@ local convert_to_hd = function(i)
     turret['collision_box'] = collision_box
     turret['selection_box'] = selection_box
     turret['sticker_box'] = selection_box
+    turret['map_generator_bounding_box'] = map_generator_bounding_box
 
     turret['dying_explosion'] = 'zerg-building-explosion-small'
 end

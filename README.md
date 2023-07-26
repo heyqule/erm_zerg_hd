@@ -1,5 +1,5 @@
 # ERM Zerg HD
-Add Zerg HD graphic.
+Add Zerg HD graphic to ERM_ZERG
 
 ##### Licenses
 Lua code files are licensed under GNU LGPLv3

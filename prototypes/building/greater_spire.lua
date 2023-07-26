@@ -8,6 +8,8 @@ local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 require('__erm_zerg__/global')
 require('util')
 local ErmConfig = require('__enemyracemanager__/lib/global_config')
+local SharedFunction = require('__erm_zerg_hd__/prototypes/shared_functions')
+local AnimationDB = require('__erm_zerg_hd_assets__/animation_db')
 
 --- Change name
 local name = 'greater_spire'
@@ -25,38 +27,13 @@ local convert_to_hd = function(i)
     --- Buildings are either unit-spawner or turret for enemies.
     local unit = data.raw["unit-spawner"][MOD_NAME..'/'.. name ..'/'.. i]
 
-    unit['animations'] = {
-        layers = {
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/buildings/" .. name .. "/" .. name .. ".png",
-                width = 519,
-                height = 784,
-                frame_count = 3,
-                animation_speed = 0.18,
-                direction_count = 1,
-                run_mode = "forward-then-backward",
-                scale = unit_scale
-            },
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/buildings/" .. name .. "/" .. name .. ".png",
-                width = 519,
-                height = 784,
-                frame_count = 3,
-                animation_speed = 0.18,
-                direction_count = 1,
-                run_mode = "forward-then-backward",
-                scale = unit_scale,
-                draw_as_shadow = true,
-                shift = { 0.25, 0.1 },
-            }
-        }
-    }
+    unit['animations'] = AnimationDB.get_layered_animations('buildings', name, 'run')
 
     unit['collision_box'] = collision_box
     unit['selection_box'] = selection_box
     unit['sticker_box'] = selection_box
-
-
+    unit['map_generator_bounding_box'] = map_generator_bounding_box
+    unit['spawn_decoration'] = SharedFunction.getSpawnerCreep()
 end
 
 --- Convert regular building, level 1 - 20
