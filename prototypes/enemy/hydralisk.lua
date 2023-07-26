@@ -8,9 +8,9 @@ local ERM_UnitTint = require('__enemyracemanager__/lib/rig/unit_tint')
 require('__erm_zerg__/global')
 require('util')
 local ErmConfig = require('__enemyracemanager__/lib/global_config')
+local AnimationDB = require('__erm_zerg_hd_assets__/animation_db')
 
 local name = 'hydralisk'
-local unit_scale = 0.4
 
 --- Change collision box in case the scale not match
 --- Changing collision box may affect unit pathing.. Be careful when you change it.
@@ -24,72 +24,13 @@ local convert_to_hd = function(i)
     local unit = data.raw["unit"][MOD_NAME..'/'.. name ..'/'.. i]
 
     --- Replace running animation
-    unit['run_animation'] = {
-        layers = {
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                width = 257,
-                height = 268,
-                frame_count = 6,
-                axially_symmetrical = false,
-                direction_count = 16,
-                scale = unit_scale,
-                animation_speed = 0.5,
-            },
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/units/" .. name .. "/" .. name .. "-run.png",
-                width = 257,
-                height = 268,
-                frame_count = 6,
-                axially_symmetrical = false,
-                direction_count = 16,
-                scale = unit_scale,
-                tint = ERM_UnitTint.tint_shadow(),
-                draw_as_shadow = true,
-                animation_speed = 0.5,
-                shift = {0.2, 0}
-            }
-        }
-    }
+    unit['run_animation'] = AnimationDB.get_layered_animations('units', name, 'run')
 
     --- Replace attack animation
-    unit['attack_parameters']['animation'] =  {
-        layers = {
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/units/" .. name .. "/" .. name .. "-attack.png",
-                width = 258,
-                height = 300,
-                frame_count = 6,
-                axially_symmetrical = false,
-                direction_count = 16,
-                scale = unit_scale,
-                animation_speed = 0.5
-            },
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/projectiles/hydra_split.png",
-                width = 257,
-                height = 198,
-                frame_count = 6,
-                axially_symmetrical = false,
-                direction_count = 16,
-                scale = unit_scale,
-                animation_speed = 0.5
-            },
-            {
-                filename = "__erm_zerg_hd__/graphics/entity/units/" .. name .. "/" .. name .. "-attack.png",
-                width = 258,
-                height = 300,
-                frame_count = 6,
-                axially_symmetrical = false,
-                direction_count = 16,
-                scale = unit_scale,
-                tint = ERM_UnitTint.tint_shadow(),
-                draw_as_shadow = true,
-                animation_speed = 0.5,
-                shift = {0.2, 0}
-            }
-        }
-    }
+    unit['attack_parameters']['animation'] = AnimationDB.get_layered_animations('units', name, 'attack')
+    local split_animation =  AnimationDB.get_single_animation('projectiles', name,'attack_attachment')
+    split_animation['shift'] = {-0.5, -1}
+    table.insert(unit['attack_parameters']['animation']['layers'], 2, split_animation)
 
 
     unit['collision_box'] = collision_box
@@ -104,17 +45,7 @@ local convert_corpse = function()
     local corpse = data.raw["corpse"][name .. '-corpse']
 
     --- Replace the animation
-    corpse['animation'] = {
-        filename = "__erm_zerg_hd__/graphics/entity/units/" .. name .. "/" .. name .. "-death.png",
-        width = 549,
-        height = 528,
-        frame_count = 8,
-        direction_count = 1,
-        axially_symmetrical = false,
-        scale = unit_scale,
-        animation_speed = 0.2
-    }
-
+    corpse['animation'] = AnimationDB.get_single_animation('units', name, 'corpse')
 end
 
 --- Convert regular units, level 1 - 25

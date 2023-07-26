@@ -5,57 +5,26 @@
 ---
 require('__erm_zerg__/global')
 local ErmConfig = require('__enemyracemanager__/lib/global_config')
+local AnimationDB = require('__erm_zerg_hd_assets__/animation_db')
 
 local create_blood_cloud_projectile = function(tier)
     local entity = data.raw['projectile'][MOD_NAME.."/blood-cloud-projectile-t"..tier]
-    entity['animation'] = {
-        filename = "__erm_zerg_hd__/graphics/entity/projectiles/spores_2.png",
-        priority = "extra-high",
-        width = 107,
-        height = 108,
-        frame_count = 4,
-        animation_speed = 0.2,
-        scale = 0.5
-    }
+    entity['animation'] = AnimationDB.get_single_animation('projectiles','guardian','projectile')
 end
 
 local create_acid_cloud_projectile = function(tier)
     local entity = data.raw['projectile'][MOD_NAME.."/blood-cloud-projectile-t"..tier]
-    entity['animation'] = {
-        filename = "__erm_zerg_hd__/graphics/entity/projectiles/spores_2.png",
-        priority = "extra-high",
-        width = 107,
-        height = 108,
-        frame_count = 4,
-        animation_speed = 0.2,
-        scale = 0.5
-    }
+    entity['animation'] = AnimationDB.get_single_animation('projectiles','guardian','projectile')
 end
 
 local create_blood_fire_projectile = function(tier)
     local entity = data.raw['projectile'][MOD_NAME.."/blood-cloud-projectile-t"..tier]
-    entity['animation'] = {
-        filename = "__erm_zerg_hd__/graphics/entity/projectiles/spores_2.png",
-        priority = "extra-high",
-        width = 107,
-        height = 108,
-        frame_count = 4,
-        animation_speed = 0.2,
-        scale = 0.5
-    }
+    entity['animation'] = AnimationDB.get_single_animation('projectiles','guardian','projectile')
 end
 
 local create_blood_explosion_projectile = function(tier)
     local entity = data.raw['projectile'][MOD_NAME.."/blood-explosion-projectile-t"..tier]
-    entity['animation'] = {
-        filename = "__erm_zerg_hd__/graphics/entity/projectiles/spores_2.png",
-        priority = "extra-high",
-        width = 107,
-        height = 108,
-        frame_count = 4,
-        animation_speed = 0.2,
-        scale = 0.5
-    }
+    entity['animation'] = AnimationDB.get_single_animation('projectiles','guardian','projectile')
 end
 
 

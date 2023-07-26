@@ -1,13 +1,13 @@
 {
   "name": "erm_zerg_hd",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "date": "2023-07-15",
-  "title": "ERM - Zerg HD Graphic Pack",
-  "author": "SHlNZ0U",
-  "contact": "Discord shlnz0u",
-  "description": "Required: ERM_Zerg. This mod adds SC2 models to serve as high res assets. Special Thanks: MihaTron for providing the graphic",
+  "title": "ERM - Zerg HD",
+  "author": "SHlNZ0U, heyqule",
+  "description": "ERM - Zerg HD, Official Remaster Package",
   "factorio_version": "1.1",
   "dependencies": [
-    "erm_zerg >= 1.20.0"
+    "erm_zerg >= 1.20.0",
+    "erm_zerg_hd_assets >= 1.0.0"
   ]
 }
