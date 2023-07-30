@@ -4,7 +4,7 @@
   "date": "2023-07-15",
   "title": "ERM - Zerg HD",
   "author": "SHlNZ0U, heyqule",
-  "description": "ERM - Zerg HD, Official Remaster Package",
+  "description": "ERM - Zerg HD, Remaster Package",
   "factorio_version": "1.1",
   "dependencies": [
     "erm_zerg >= 1.20.0",
