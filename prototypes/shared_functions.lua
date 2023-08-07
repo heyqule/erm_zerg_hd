@@ -10,6 +10,13 @@ function SharedFunctions.getSpawnerCreep()
     return {
         {
             decorative = "creep-decal",
+            spawn_min = 1,
+            spawn_max = 2,
+            spawn_min_radius = 0,
+            spawn_max_radius = 2
+        },
+        {
+            decorative = "creep-decal",
             spawn_min = 3,
             spawn_max = 5,
             spawn_min_radius = 2,
@@ -20,7 +27,7 @@ function SharedFunctions.getSpawnerCreep()
             spawn_min = 4,
             spawn_max = 20,
             spawn_min_radius = 2,
-            spawn_max_radius = 14,
+            spawn_max_radius = 7,
             radius_curve = 0.9
         }
     }

@@ -26,6 +26,11 @@ local folded_animation = function()
     return animation
 end
 
+local attack_animation = function()
+    local animation = AnimationDB.get_layered_animations('buildings', name, 'attack')
+    return animation
+end
+
 --- This function convert classic to HD graphic
 --- i is the level of the unit.
 local convert_to_hd = function(i)
@@ -33,6 +38,8 @@ local convert_to_hd = function(i)
     local turret = data.raw["turret"][MOD_NAME..'/'.. name ..'/'.. i]
 
     turret['folded_animation'] = folded_animation()
+
+    turret['starting_attack_animation'] = attack_animation()
 
     turret['collision_box'] = collision_box
     turret['selection_box'] = selection_box

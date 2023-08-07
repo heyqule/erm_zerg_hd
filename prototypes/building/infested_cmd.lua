@@ -33,7 +33,14 @@ local convert_to_hd = function(i)
     --- Buildings are either unit-spawner or turret for enemies.
     local unit = data.raw["unit-spawner"][MOD_NAME..'/'.. name ..'/'.. i]
 
-    unit['animations'] = AnimationDB.get_layered_animations('buildings', name, 'run')
+    local cmd_animation = AnimationDB.get_layered_animations('buildings', name, 'run')
+    local infestor_animation = AnimationDB.get_layered_animations('buildings', name..'_infestor', 'run')
+
+    for _, layer in pairs(infestor_animation['layers']) do
+        table.insert(cmd_animation['layers'],layer)
+    end
+
+    unit['animations'] = cmd_animation
 
     unit['collision_box'] = collision_box
     unit['selection_box'] = selection_box
