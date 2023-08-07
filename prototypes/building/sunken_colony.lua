@@ -46,7 +46,7 @@ local convert_to_hd = function(i)
     turret['sticker_box'] = selection_box
     turret['map_generator_bounding_box'] = map_generator_bounding_box
 
-    turret['dying_explosion'] = 'zerg-building-explosion-small'
+    turret['dying_explosion'] = 'erm_zerg/building-explosion-small'
 
     local short_turret = data.raw["turret"][MOD_NAME..'/'.. short_range_name ..'/'.. i]
 
@@ -58,7 +58,7 @@ local convert_to_hd = function(i)
     short_turret['sticker_box'] = selection_box
     short_turret['map_generator_bounding_box'] = map_generator_bounding_box
 
-    turret['dying_explosion'] = 'zerg-building-explosion-small'
+    turret['dying_explosion'] = 'erm_zerg/building-explosion-small'
 end
 
 --- Convert regular building, level 1 - 20

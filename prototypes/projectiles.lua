@@ -6,47 +6,47 @@
 require('__erm_zerg__/global')
 local ErmConfig = require('__enemyracemanager__/lib/global_config')
 local AnimationDB = require('__erm_zerg_hd_assets__/animation_db')
-
-local mutalisk_proj = data.raw['projectile']['mutalisk-projectile']
+local MOD_NAME = 'erm_zerg'
+local mutalisk_proj = data.raw['projectile'][MOD_NAME..'/mutalisk-projectile']
 mutalisk_proj['animation'] = AnimationDB.get_single_animation('projectiles','mutalisk','projectile')
 
-local hydralisk_proj = data.raw['projectile']['hydralisk-projectile']
+local hydralisk_proj = data.raw['projectile'][MOD_NAME..'/hydralisk-projectile']
 hydralisk_proj['animation'] = AnimationDB.get_single_animation('projectiles','hydralisk','projectile')
 
-local guardian_proj = data.raw['projectile']['guardian-projectile']
+local guardian_proj = data.raw['projectile'][MOD_NAME..'/guardian-projectile']
 guardian_proj['animation'] = AnimationDB.get_single_animation('projectiles','guardian','projectile')
 
-local parasite_proj = data.raw['projectile']['parasite-projectile']
+local parasite_proj = data.raw['projectile'][MOD_NAME..'/parasite-projectile']
 parasite_proj['animation'] = AnimationDB.get_single_animation('projectiles','parasite','projectile')
 
-local lurker_explosion = data.raw['explosion']['lurker-explosion']
+local lurker_explosion = data.raw['explosion'][MOD_NAME..'/lurker-explosion']
 lurker_explosion['animations'] = AnimationDB.get_single_animation('projectiles','lurker','explosion')
 
-local colony_explosion = data.raw['explosion']['colony-explosion']
+local colony_explosion = data.raw['explosion'][MOD_NAME..'/colony-explosion']
 colony_explosion['animations'] = AnimationDB.get_layered_animations('projectiles','colony','explosion')
 
-local mutalisk_explosion = data.raw['explosion']['mutalisk-explosion-small']
+local mutalisk_explosion = data.raw['explosion'][MOD_NAME..'/mutalisk-explosion-small']
 mutalisk_explosion['animations'] = AnimationDB.get_layered_animations('projectiles','mutalisk','explosion')
 
-local hydralisk_explosion = data.raw['explosion']['hydralisk-explosion-small']
+local hydralisk_explosion = data.raw['explosion'][MOD_NAME..'/hydralisk-explosion-small']
 hydralisk_explosion['animations'] = AnimationDB.get_layered_animations('projectiles','hydralisk','explosion')
 
-local blood_cloud_explosion = data.raw['explosion']['blood-cloud-explosion']
+local blood_cloud_explosion = data.raw['explosion'][MOD_NAME..'/blood-cloud-explosion']
 blood_cloud_explosion['animations'] = AnimationDB.get_layered_animations('projectiles','blood_cloud','explosion')
 
-local dark_swam_80 = data.raw['explosion']['dark-swarm-80-explosion']
+local dark_swam_80 = data.raw['explosion'][MOD_NAME..'/dark-swarm-80-explosion']
 dark_swam_80['animations'] = AnimationDB.get_layered_animations('projectiles','dark_swam_80','explosion')
 
-local dark_swam = data.raw['explosion']['dark-swarm-explosion']
+local dark_swam = data.raw['explosion'][MOD_NAME..'/dark-swarm-explosion']
 dark_swam['animations'] = AnimationDB.get_layered_animations('projectiles','dark_swam','explosion')
 
-local acid_cloud = data.raw['explosion']['acid-cloud-explosion']
+local acid_cloud = data.raw['explosion'][MOD_NAME..'/acid-cloud-explosion']
 acid_cloud['animations'] = AnimationDB.get_layered_animations('projectiles','acid_cloud','explosion')
 
-local devourer_cloud = data.raw['explosion']['devourer-cloud-explosion']
+local devourer_cloud = data.raw['explosion'][ MOD_NAME..'/devourer-cloud-explosion']
 devourer_cloud['animations'] = AnimationDB.get_layered_animations('projectiles','devourer_cloud','explosion')
 
-local scourge_explosion = data.raw['explosion']['scourge-explosion']
+local scourge_explosion = data.raw['explosion'][ MOD_NAME.."/scourge-explosion"]
 scourge_explosion['animations'] = AnimationDB.get_layered_animations('projectiles','scourge_explosion','explosion')
 
 

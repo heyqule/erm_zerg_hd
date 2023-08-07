@@ -5,26 +5,27 @@
 ---
 local AnimationDB = require('__erm_zerg_hd_assets__/animation_db')
 
-local smallCorpse = data.raw["corpse"]['zerg-small-base-corpse']
+local MOD_NAME = 'erm_zerg'
+local smallCorpse = data.raw["corpse"][MOD_NAME..'/small-base-corpse']
 
 --- Replace the animation
 smallCorpse['animation'] = AnimationDB.get_layered_animations('death', 'small_rubble', 'run')
 
 
-local largeCorpse = data.raw["corpse"]['zerg-large-base-corpse']
+local largeCorpse = data.raw["corpse"][MOD_NAME.."/large-base-corpse"]
 
 largeCorpse['animation'] = AnimationDB.get_layered_animations('death', 'large_rubble', 'run')
 
-local explosion = data.raw["explosion"]['zerg-building-explosion']
+local explosion = data.raw["explosion"][MOD_NAME.."/building-explosion"]
 explosion['animations'] = AnimationDB.get_layered_animations('death', 'large_building', 'explosion')
 
-local xlarge_explosion =  data.raw["explosion"]['zerg-terran-building-xlarge-explosion']
+local xlarge_explosion =  data.raw["explosion"][MOD_NAME.."/terran-building-xlarge-explosion"]
 xlarge_explosion['animations'] = AnimationDB.get_layered_animations('death', 'terran_cmd', 'explosion')
 
 data:extend({
     {
         type = "explosion",
-        name = "zerg-building-explosion-small",
+        name = MOD_NAME.."/building-explosion-small",
         icon = "__erm_zerg__/graphics/entity/icons/buildings/advisor.png",
         icon_size = 64,
         subgroup = 'explosions',
