@@ -12,8 +12,8 @@ local SharedFunction = require('__erm_zerg_hd__/prototypes/shared_functions')
 local AnimationDB = require('__erm_zerg_hd_assets__/animation_db')
 
 --- Change name
-local name = 'sunker_colony'
-local short_range_name = 'sunker_colony_shortrange'
+local name = 'sunken_colony'
+local short_range_name = 'sunken_colony_shortrange'
 local unit_scale = 0.375
 
 --- Change collision / selection box in case the scale not match

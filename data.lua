@@ -34,7 +34,7 @@ require "prototypes.building.queen_nest"
 require "prototypes.building.spawning_pool"
 require "prototypes.building.spire"
 require "prototypes.building.spore_colony"
-require "prototypes.building.sunker_colony"
+require "prototypes.building.sunken_colony"
 require "prototypes.building.ultralisk_cavern"
 require "prototypes.building.infested_cmd"
 
