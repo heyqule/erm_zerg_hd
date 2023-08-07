@@ -41,4 +41,4 @@ require "prototypes.building.infested_cmd"
 require "prototypes.boss-projectiles"
 require "prototypes.projectiles"
 
-
+require 'update-teamcolour'
