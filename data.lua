@@ -3,6 +3,7 @@
 --- Created by heyqule.
 --- DateTime: 6/12/2022 7:42 PM
 ---
+MOD_NAME = 'erm_zerg'
 
 require "prototypes.enemy.zergling"
 require "prototypes.enemy.ultralisk"
