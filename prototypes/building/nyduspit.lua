@@ -35,7 +35,7 @@ local convert_to_hd = function(i)
     unit['map_generator_bounding_box'] = map_generator_bounding_box
     unit['spawn_decoration'] = SharedFunction.getSpawnerCreep()
 
-    unit['dying_explosion'] = 'zerg-building-explosion-small'
+    unit['dying_explosion'] = MOD_NAME..'/building-explosion-small'
 end
 
 --- Convert regular building, level 1 - 20
