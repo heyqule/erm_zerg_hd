@@ -7,7 +7,7 @@
   "description": "ERM - Zerg HD, Remaster Package",
   "factorio_version": "1.1",
   "dependencies": [
-    "erm_zerg >= 1.20.0",
-    "erm_zerg_hd_assets >= 1.0.0"
+    "erm_zerg >= 1.21.0",
+    "erm_zerg_hd_assets >= 1.1.0"
   ]
 }
