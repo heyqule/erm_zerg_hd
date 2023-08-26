@@ -29,7 +29,6 @@ local convert_to_hd = function(i)
     --- Replace attack animation
     unit['attack_parameters']['animation'] = AnimationDB.get_layered_animations('units', name, 'attack')
     local split_animation =  AnimationDB.get_single_animation('projectiles', name,'attack_attachment')
-    split_animation['shift'] = {-0.5, -1}
     table.insert(unit['attack_parameters']['animation']['layers'], 2, split_animation)
 
 
